@@ -1,7 +1,7 @@
 {
   "name": "devflow-ai",
-  "version": "1.1.0",
-  "description": "Multi-agent software development team: backlog selection, confirmed assignment, requirements, implementation, QA, review, and approved Jira updates.",
+  "version": "1.2.0",
+  "description": "Multi-agent software development team: backlog selection, confirmed assignment, requirements, implementation, QA, review, and approved issue tracker updates (GitHub Issues or Jira).",
   "author": {
     "name": "Unicentric",
     "email": "plugins@unicentric.com"
@@ -10,6 +10,8 @@
   "repository": "https://github.com/karthik3494/cursor_marketplace_plugin",
   "license": "MIT",
   "keywords": [
+    "github",
+    "github-issues",
     "jira",
     "sdlc",
     "multi-agent",
@@ -23,39 +25,54 @@
   "variables": {
     "type": "object",
     "properties": {
+      "WORK_ITEM_PROVIDER": {
+        "type": "string",
+        "title": "Work item provider",
+        "description": "Primary issue tracker for DevFlow commands",
+        "default": "github",
+        "enum": ["github", "jira", "azure-devops", "gitlab", "bitbucket"]
+      },
+      "GITHUB_OWNER": {
+        "type": "string",
+        "title": "GitHub owner",
+        "description": "Organization or user for the repository (e.g. karthik3494)"
+      },
+      "GITHUB_REPO": {
+        "type": "string",
+        "title": "GitHub repository",
+        "description": "Repository name containing issues (e.g. cursor_marketplace_plugin)"
+      },
+      "GITHUB_TOKEN": {
+        "type": "string",
+        "title": "GitHub token",
+        "description": "PAT with repo scope for issues (issues:read/write as needed); set only in Plugins → Configure"
+      },
       "JIRA_BASE_URL": {
         "type": "string",
         "title": "Jira base URL",
-        "description": "Example: https://your-org.atlassian.net"
+        "description": "Optional. Example: https://your-org.atlassian.net"
       },
       "JIRA_SITE_NAME": {
         "type": "string",
         "title": "Jira site name (subdomain)",
-        "description": "Cloud subdomain only: use 'your-org' for https://your-org.atlassian.net (required for bundled jira-cloud MCP)"
+        "description": "Optional for Jira. Subdomain only for jira-cloud MCP"
       },
       "JIRA_EMAIL": {
         "type": "string",
         "title": "Jira user email",
-        "description": "Email for Jira Cloud API authentication"
+        "description": "Optional for Jira Cloud API"
       },
       "JIRA_API_TOKEN": {
         "type": "string",
         "title": "Jira API token",
-        "description": "Atlassian API token (never commit to source control)"
+        "description": "Optional Atlassian API token"
       },
       "JIRA_PROJECT_KEY": {
         "type": "string",
         "title": "Default Jira project key",
-        "description": "Optional default project for backlog queries (e.g. MAG)"
-      },
-      "WORK_ITEM_PROVIDER": {
-        "type": "string",
-        "title": "Work item provider",
-        "description": "Primary provider for Release 1",
-        "default": "jira",
-        "enum": ["jira", "github", "azure-devops", "gitlab", "bitbucket"]
+        "description": "Optional default project for Jira backlog"
       }
     },
-    "required": ["JIRA_BASE_URL", "JIRA_SITE_NAME", "JIRA_EMAIL", "JIRA_API_TOKEN"]
+    "required": ["WORK_ITEM_PROVIDER", "GITHUB_OWNER", "GITHUB_REPO", "GITHUB_TOKEN"]
   }
 }

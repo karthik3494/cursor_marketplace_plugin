@@ -52,8 +52,8 @@ if (manifest) {
 
 readJson("hooks/hooks.json");
 const mcp = readJson("mcp.json");
-if (mcp && !mcp.mcpServers?.["jira-cloud"]) {
-  warnings.push('mcp.json missing jira-cloud server (expected for Release 1)');
+if (mcp && !mcp.mcpServers?.["github-issues"]) {
+  warnings.push('mcp.json missing github-issues server (default provider)');
 }
 
 const requiredAgents = [
@@ -65,6 +65,7 @@ const requiredAgents = [
   "developer",
   "qa-automation",
   "code-reviewer",
+  "issue-tracker-management",
   "jira-management",
 ];
 
@@ -88,6 +89,9 @@ const requiredCommands = [
   "update-jira",
   "jira-label-audit",
   "jira-progress-update",
+  "update-github-issue",
+  "github-label-audit",
+  "github-progress-update",
 ];
 
 for (const c of requiredCommands) {
@@ -104,6 +108,7 @@ const requiredSkills = [
   "automated-testing",
   "production-code-review",
   "jira-management",
+  "github-issue-management",
   "project-discovery",
 ];
 

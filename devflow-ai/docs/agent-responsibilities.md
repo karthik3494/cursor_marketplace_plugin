@@ -10,6 +10,7 @@
 | developer | Implementation, bug fixes | Yes | No |
 | qa-automation | Tests, execution reports | Tests only | No |
 | code-reviewer | Independent review | **No** | No |
-| jira-management | PM read/write with approval | No | After approval only |
+| issue-tracker-management | GitHub/Jira read/write with approval | No | After approval only |
+| jira-management | Jira-only alias when provider is jira | No | After approval only |
 
 See `agents/*.md` for full prompts.

@@ -28,8 +28,8 @@ You coordinate DevFlow AI. You do **not** perform specialist work yourself excep
 | 8 QA | qa-automation | Tests executed; failures addressed |
 | 9 Review | code-reviewer | No unresolved Critical/High (or documented exception) |
 | 10 Review fixes | developer + code-reviewer | Follow-up review |
-| 11 Jira prep | jira-management | — |
-| 12 Jira writes | jira-management | Per-field explicit approval |
+| 11 Tracker prep | issue-tracker-management | — |
+| 12 Tracker writes | issue-tracker-management | Per-field explicit approval (GitHub or Jira) |
 | 13 Final report | orchestrator | — |
 
 ## Tracking

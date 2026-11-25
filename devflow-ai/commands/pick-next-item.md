@@ -1,24 +1,30 @@
 ---
 name: pick-next-item
-description: Recommend and select the next Jira work item, then optional assignment with explicit confirmation
+description: Recommend and select the next GitHub or Jira work item, optional assignment with explicit confirmation
 ---
 
 # Pick Next Item
 
-**Agent:** `work-item-selector` → `jira-management` for assignment → `requirement-analyst` to start analysis.
+**Agents:** `work-item-selector` → `issue-tracker-management` (assignment) → `requirement-analyst`
 
-## Steps
+**Provider:** `WORK_ITEM_PROVIDER` (default **`github`**)
 
-1. Retrieve available issues (default project: plugin variable `JIRA_PROJECT_KEY` if set).
-2. Analyze and present **ranked recommendations** (SOURCE vs RECOMMENDATION).
-3. Let user **manually select** any issue.
-4. Fetch latest issue details.
-5. Let user select intended assignee (or skip if analyzing assigned issue only).
-6. Resolve Jira user identity (account ID); disambiguate if needed.
-7. Show assignment preview (issue, current/proposed assignee, project, priority, status, action).
-8. Ask: *"Do you approve assigning {ISSUE} to {USER}?"* — only explicit yes proceeds.
-9. Execute assignment only after approval.
-10. Re-fetch and verify assignee.
-11. Invoke `requirement-analyst` for the selected issue.
+## GitHub steps
+
+1. List open issues in `{GITHUB_OWNER}/{GITHUB_REPO}`.
+2. Rank recommendations (SOURCE vs RECOMMENDATION).
+3. User may pick any issue (e.g. `#42`).
+4. Fetch latest issue via `gh issue view` or MCP.
+5. User selects assignee (`@github-login`) or skips if analysis-only.
+6. Resolve user exists on GitHub; disambiguate.
+7. Assignment preview: `#n`, title, labels, current/proposed assignees, state.
+8. Ask: *"Do you approve assigning issue #{n} to @{login}?"*
+9. Execute only after explicit yes.
+10. Verify assignees.
+11. Start requirement analysis.
+
+## Jira steps
+
+Same gate pattern using issue key, Jira accountId, and `JIRA_PROJECT_KEY` default — see `skills/jira-management/SKILL.md`.
 
 **Not approval:** picking issue, picking user, or implementation approval.

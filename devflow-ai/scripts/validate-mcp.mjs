@@ -24,8 +24,8 @@ function scan(obj) {
   }
 }
 
-if (!mcp.mcpServers?.["jira-cloud"]) {
-  errors.push('mcp.json must define mcpServers["jira-cloud"]');
+if (!mcp.mcpServers?.["github-issues"]) {
+  errors.push('mcp.json must define mcpServers["github-issues"]');
 }
 
 scan(mcp);

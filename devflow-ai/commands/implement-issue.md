@@ -17,6 +17,6 @@ description: Run architecture, planning, approval gate, development, QA, and rev
 1. Technical analysis and implementation plan.
 2. Present plan; obtain **explicit implementation approval**.
 3. Implement; run tests; independent review; resolve Critical/High findings.
-4. Offer `/update-jira` for PM updates (separate approval).
+4. Offer `/update-github-issue` or `/update-jira` per `WORK_ITEM_PROVIDER` (separate approval).
 
 Does not assign issues or post Jira updates without approval commands.

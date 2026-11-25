@@ -2,6 +2,15 @@
 
 All notable changes to DevFlow AI are documented here.
 
+## [1.2.0] - 2026-11-25
+
+### Changed
+
+- **Default work item provider: GitHub Issues** (`github-issues` MCP, `GITHUB_*` variables)
+- New agent `issue-tracker-management` and skill `github-issue-management`
+- Commands: `/update-github-issue`, `/github-label-audit`, `/github-progress-update`
+- Jira remains optional via `WORK_ITEM_PROVIDER=jira`
+
 ## [1.1.0] - 2026-11-25
 
 ### Added

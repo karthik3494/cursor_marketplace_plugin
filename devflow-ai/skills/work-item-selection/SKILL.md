@@ -1,47 +1,48 @@
 ---
 name: work-item-selection
-description: Retrieve backlog items from Jira and other PM systems, rank recommendations, and support manual selection. Use for pick-next-item, backlog triage, and sprint planning.
+description: Retrieve backlog items from GitHub Issues or Jira, rank recommendations, and support manual selection. Use for pick-next-item and backlog triage.
 ---
 
 # Work Item Selection
 
-## Integration order
+Check **`WORK_ITEM_PROVIDER`** (default: `github`).
 
-1. `GetDynamicTools` — pattern `jira|atlassian`
-2. Prefer plugin MCP `plugin-devflow-ai-jira-cloud` (tools: `jira_get`, `jira_post`, `jira_put`, `jira_patch`, `jira_delete`)
-3. Plugin variables: `JIRA_*` including `JIRA_SITE_NAME` for bundled MCP
-4. Alternate: `atlassian-rovo` after OAuth — see `docs/integrations.md`
-5. If no MCP tools available: mark **unverified**; do not fabricate issue data
+## GitHub Issues (default)
 
-## Jira JQL examples (adapt filters)
+### Tooling
 
-```
-project = {KEY} AND status in ("Open","To Do","Backlog") ORDER BY priority DESC, updated DESC
-```
+1. MCP: `plugin-devflow-ai-github-issues` — discover tools via `GetDynamicTools` pattern `github`
+2. Variables: `GITHUB_OWNER`, `GITHUB_REPO`, `GITHUB_TOKEN`
+3. CLI: `gh issue list --repo {owner}/{repo} --state open --json number,title,body,labels,assignees,createdAt,updatedAt`
 
-## Read vs write
+### Filters
 
-| Operation | Approval |
-|-----------|----------|
-| Search, get issue, users, sprint | Authorized reads |
-| Assign, transition, label, comment | Explicit per-action approval |
+State (open/closed), labels, assignee, author, milestone, no:assignee, sort, search keywords.
 
-## Ranking factors
+### Ranking
 
-Priority, value, sprint, blockers/dependencies, readiness, effort/complexity, assignee/workload, clarification debt, developer fit.
+Priority labels (if present), project signals, dependencies (linked issues/PRs in body), readiness, complexity hints, assignee load, fit for developer.
+
+### Issue reference
+
+Display `#123` and URL `https://github.com/{owner}/{repo}/issues/{n}`
+
+---
+
+## Jira (`WORK_ITEM_PROVIDER=jira`)
+
+1. MCP `plugin-devflow-ai-jira-cloud` or `atlassian-rovo`
+2. Variables: `JIRA_*`
+3. JQL examples in prior docs
+
+---
 
 ## Output rules
 
-- Mark **SOURCE** fields from API
-- Mark **RECOMMENDATION** for AI ranking only
-- Never fabricate issue metadata
+- **SOURCE** — API/MCP data only
+- **RECOMMENDATION** — AI ranking
+- Never fabricate metadata
 
-## Provider adapters
+## Read vs write
 
-| Provider | Discovery |
-|----------|-----------|
-| Jira | MCP or REST v3 |
-| GitHub | `gh issue list` / Issues MCP |
-| Azure DevOps | MCP or CLI |
-| GitLab | API/MCP |
-| Bitbucket | API where available |
+Search/list/get = reads. Assign/label/comment/state = approval via `issue-tracker-management`.

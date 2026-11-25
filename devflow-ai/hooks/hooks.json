@@ -12,7 +12,7 @@
       {
         "type": "prompt",
         "prompt": "You are a safety hook for DevFlow AI. Inspect the pending MCP call. If it appears to modify Jira or another work-item system (assign, transition, label, comment, priority, sprint, worklog, or delete), respond with permission deny unless the active workflow has recorded explicit user approval for that exact issue, field, and value. Read operations may allow. Return JSON with permission allow or deny.",
-        "matcher": "(?i)jira|atlassian|issue|work.?item"
+        "matcher": "(?i)github|jira|atlassian|issue|work.?item"
       }
     ]
   }

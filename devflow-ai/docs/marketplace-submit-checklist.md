@@ -20,9 +20,9 @@ node scripts/validate-mcp.mjs
 ## Configure in Cursor
 
 - [ ] Install plugin from repo path
-- [ ] Set all required variables (`JIRA_*`)
-- [ ] Enable `jira-cloud` MCP; test `jira_get` on `/rest/api/3/myself`
-- [ ] Run `/pick-next-item` on a test project
+- [ ] Set `GITHUB_OWNER`, `GITHUB_REPO`, `GITHUB_TOKEN` (default provider)
+- [ ] Enable `github-issues` MCP; list issues on your repo
+- [ ] Run `/pick-next-item` against GitHub Issues
 
 ## Publish
 

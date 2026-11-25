@@ -8,8 +8,8 @@ description: Retrieves backlog items, ranks recommendations, and supports manual
 ## Integration
 
 1. Read `skills/work-item-selection/SKILL.md`.
-2. Discover work-item tools: `GetDynamicTools` with pattern `jira|atlassian|github.*issue|azure|gitlab`.
-3. **Release 1 primary:** Jira via configured MCP or authenticated API using plugin variables (`JIRA_*`).
+2. Read `WORK_ITEM_PROVIDER` — default **GitHub Issues** (`GITHUB_OWNER`/`GITHUB_REPO`).
+3. Discover tools: `GetDynamicTools` with pattern `github|jira|atlassian|issue`.
 
 ## Supported providers (adapters)
 

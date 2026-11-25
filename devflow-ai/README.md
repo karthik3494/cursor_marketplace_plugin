@@ -2,7 +2,9 @@
 
 [![Cursor Plugin](https://img.shields.io/badge/Cursor-Plugin-blue)](https://cursor.com/docs/reference/plugins)
 
-DevFlow AI is a **production-oriented Cursor plugin** that coordinates the software development lifecycle: backlog selection, **confirmed assignment**, requirements clarification, architecture and planning, implementation, automated QA, independent code review, and **user-approved Jira updates**.
+DevFlow AI is a **production-oriented Cursor plugin** that coordinates the software development lifecycle: backlog selection, **confirmed assignment**, requirements clarification, architecture and planning, implementation, automated QA, independent code review, and **user-approved GitHub Issues or Jira updates**.
+
+**Default issue tracker:** GitHub Issues (`WORK_ITEM_PROVIDER=github`).
 
 ## Features
 
@@ -22,21 +24,18 @@ From this repository:
 - **Single plugin:** point Cursor at `devflow-ai/`
 - **Marketplace repo:** install from root; marketplace lists `devflow-ai` via `.cursor-plugin/marketplace.json`
 
-### 2. Configure Jira
+### 2. Configure GitHub Issues
 
 In **Plugins → Configure** set:
 
-- `JIRA_BASE_URL`
-- `JIRA_EMAIL`
-- `JIRA_API_TOKEN`
-- Optional: `JIRA_PROJECT_KEY`
+- `WORK_ITEM_PROVIDER` = `github` (default)
+- `GITHUB_OWNER` — e.g. `karthik3494`
+- `GITHUB_REPO` — e.g. `cursor_marketplace_plugin`
+- `GITHUB_TOKEN` — PAT with issue access
 
-Bundled MCP servers (see [docs/integrations.md](docs/integrations.md)):
+Approve bundled MCP **`github-issues`** on first use.
 
-- **`jira-cloud`** — API token via `@aashari/mcp-server-atlassian-jira`
-- **`atlassian-rovo`** — official `https://mcp.atlassian.com/v2/mcp` (OAuth)
-
-Set `JIRA_SITE_NAME`, `JIRA_EMAIL`, and `JIRA_API_TOKEN` in **Plugins → Configure**.
+Optional Jira: set `WORK_ITEM_PROVIDER=jira` and `JIRA_*` variables — see [docs/integrations.md](docs/integrations.md).
 
 ### 3. Run commands
 
@@ -50,9 +49,12 @@ Set `JIRA_SITE_NAME`, `JIRA_EMAIL`, and `JIRA_API_TOKEN` in **Plugins → Config
 | `/review-code` | Independent review |
 | `/onboard-project` | Discover repo architecture |
 | `/generate-test-cases` | Structured test scenarios |
-| `/update-jira` | Approved field updates |
-| `/jira-label-audit` | Label recommendations |
-| `/jira-progress-update` | Progress comment and status |
+| `/update-github-issue` | Approved GitHub issue updates |
+| `/github-label-audit` | GitHub label recommendations |
+| `/github-progress-update` | GitHub progress comment |
+| `/update-jira` | Jira field updates (when provider is jira) |
+| `/jira-label-audit` | Jira labels |
+| `/jira-progress-update` | Jira progress |
 
 For the full lifecycle, ask the agent to run **`workflow-orchestrator`** after `/pick-next-item`.
 
@@ -89,8 +91,8 @@ devflow-ai/
 ## Known limitations (v1.0.0)
 
 - Jira live integration **not verified** in plugin build CI; requires your MCP + credentials
-- Live Jira calls require your credentials and MCP approval in Cursor
-- `atlassian-rovo` requires interactive OAuth (not validated in CI)
+- GitHub/Jira live calls require your token and MCP approval in Cursor
+- Jira MCP optional unless `WORK_ITEM_PROVIDER=jira`
 - Non-Jira providers are adapter-documented; Jira is Release 1 primary
 
 ## License

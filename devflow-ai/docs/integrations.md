@@ -1,57 +1,35 @@
 # Integrations
 
-## Release 1 — Jira (primary)
+## Primary: GitHub Issues
 
-DevFlow ships two Jira MCP entries in `mcp.json` (enable one or both in Cursor):
+| Server key | Package | Auth |
+|------------|---------|------|
+| `github-issues` | `@modelcontextprotocol/server-github` | `GITHUB_TOKEN` in plugin variables |
 
-| Server key | Transport | Auth | Best for |
-|------------|-----------|------|----------|
-| `jira-cloud` | `npx @aashari/mcp-server-atlassian-jira` | API token via plugin variables | Token-based CI-friendly reads/writes (with approval gates) |
-| `atlassian-rovo` | `https://mcp.atlassian.com/v2/mcp` | Atlassian OAuth (browser) | Official Atlassian Rovo MCP |
+Tools are discovered at runtime (`GetDynamicTools` pattern `github`). Fallback: GitHub CLI `gh issue`.
 
-### Plugin variables (`jira-cloud`)
+### Your repo
 
-| Variable | Example |
-|----------|---------|
-| `JIRA_BASE_URL` | `https://your-org.atlassian.net` |
-| `JIRA_SITE_NAME` | `your-org` |
-| `JIRA_EMAIL` | `you@company.com` |
-| `JIRA_API_TOKEN` | (dashboard secret) |
-| `JIRA_PROJECT_KEY` | `MAG` |
+This marketplace repo is a natural fit:
 
-Cursor exposes bundled MCP as `plugin-devflow-ai-jira-cloud` (prefix may vary).
+- `GITHUB_OWNER`: `karthik3494`
+- `GITHUB_REPO`: `cursor_marketplace_plugin`
 
-### Setup checklist
+Use [GitHub Issues](https://github.com/karthik3494/cursor_marketplace_plugin/issues) for DevFlow backlog.
 
-- [ ] Atlassian account with API token
-- [ ] Jira permissions: browse project, assign issues, transition, edit labels (as needed)
-- [ ] Plugin variables set in **Plugins → Configure**
-- [ ] Approve MCP server on first use in Cursor
-- [ ] Optional: connect `atlassian-rovo` and complete OAuth
+## Optional: Jira
 
-### REST fallback (manual / scripted with approval)
+| Server | Notes |
+|--------|--------|
+| `jira-cloud` | API token via `JIRA_*` variables |
+| `atlassian-rovo` | OAuth at `https://mcp.atlassian.com/v2/mcp` |
 
-```
-GET {JIRA_BASE_URL}/rest/api/3/issue/{KEY}
-```
-
-Use Basic auth with email + API token. All PUT/POST require same approval flow as MCP writes.
+Set `WORK_ITEM_PROVIDER=jira` to route agents to Jira skills.
 
 ## Other providers
 
-| Provider | Approach |
-|----------|----------|
-| GitHub Issues | `gh` CLI / GitHub MCP |
-| Azure DevOps | Azure MCP or CLI |
-| GitLab | API/MCP |
-| Bitbucket | API where supported |
+GitHub Issues path is verified in structure; live API calls need your token/MCP approval in Cursor.
 
-Adapters share: **reads automatic when authorized; writes need per-field approval.**
+## Adapters
 
-## Status in this environment
-
-| Integration | Implementation | Live verified |
-|-------------|----------------|---------------|
-| Jira interface (skills/agents) | Complete | **Not verified** — no Jira MCP/credentials in build environment |
-| GitHub Issues | Documented adapter | Not verified |
-| Plugin manifest | Complete | Structure validated locally |
+All providers: reads when authorized; writes require per-field approval via `issue-tracker-management`.

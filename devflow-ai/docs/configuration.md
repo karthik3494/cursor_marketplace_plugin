@@ -2,29 +2,36 @@
 
 ## Plugin install
 
-1. Clone or install marketplace repo
-2. In Cursor: add plugin from path `devflow-ai` or install marketplace root per [marketplace docs](https://cursor.com/docs/reference/plugins)
+Install from `devflow-ai/` or marketplace root. Set variables in **Plugins → Configure**.
 
-## Variables (Plugins → Configure)
+## GitHub Issues (default)
 
 | Variable | Required | Purpose |
 |----------|----------|---------|
-| `JIRA_BASE_URL` | Yes | Cloud/site URL |
-| `JIRA_SITE_NAME` | Yes | Subdomain for `jira-cloud` MCP (`your-org`) |
-| `JIRA_EMAIL` | Yes | API user |
-| `JIRA_API_TOKEN` | Yes | Atlassian token |
-| `JIRA_PROJECT_KEY` | No | Default backlog project |
-| `WORK_ITEM_PROVIDER` | No | Default `jira` |
+| `WORK_ITEM_PROVIDER` | Yes | Use `github` (default) |
+| `GITHUB_OWNER` | Yes | Org or user |
+| `GITHUB_REPO` | Yes | Repository with issues |
+| `GITHUB_TOKEN` | Yes | PAT (`repo` scope; issue write if assigning/updating) |
 
-Never commit token values.
+Bundled MCP: **`github-issues`** → `@modelcontextprotocol/server-github`
 
-## Bundled MCP (`mcp.json`)
+### Token scopes
 
-- **`jira-cloud`** — `@aashari/mcp-server-atlassian-jira` (API token; uses variables above)
-- **`atlassian-rovo`** — official cloud endpoint (OAuth in browser)
+- Minimum: `repo` (private) or `public_repo` (public only)
+- Assign/label/comment: write access to issues
 
-Disable either server in Cursor if your team standardizes on one auth model.
+### Quick test
 
-## Per-project
+```bash
+gh issue list --repo OWNER/REPO --limit 5
+```
 
-Use `/onboard-project` in each repository. Do not store repo-specific paths in the plugin.
+(`gh` uses your login; MCP uses `GITHUB_TOKEN` from plugin config.)
+
+## Jira (optional)
+
+Set `WORK_ITEM_PROVIDER` to `jira` and configure `JIRA_*` variables. Enable `jira-cloud` MCP. See [integrations.md](integrations.md).
+
+## Per-project repo work
+
+Use `/onboard-project` in the application codebase (separate from issues repo if different).

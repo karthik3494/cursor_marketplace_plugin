@@ -13,7 +13,7 @@
       "name": "devflow-ai",
       "source": "devflow-ai",
       "description": "DevFlow AI – Multi-Agent Software Development Team",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "keywords": ["jira", "sdlc", "multi-agent", "qa", "code-review"],
       "logo": "assets/logo.svg"
     }

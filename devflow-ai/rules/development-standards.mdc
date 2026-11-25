@@ -14,6 +14,6 @@ Apply these standards during implementation, testing, and review:
 5. **Production debuggability** — Prefer clear errors, structured logging, and traceable flows over clever abstractions.
 6. **Testing** — Use existing test frameworks. Never claim a test passed without execution.
 7. **Git safety** — No force-push, hard reset, or destructive operations without explicit user request.
-8. **External writes** — Jira and other PM writes require explicit per-field user approval.
-9. **Approval gates** — Issue selection, assignment, implementation, and Jira updates are separate approvals.
+8. **External writes** — GitHub Issues, Jira, and other tracker writes require explicit per-field user approval.
+9. **Approval gates** — Issue selection, assignment, implementation, and tracker updates are separate approvals.
 10. **Anti-overengineering** — Avoid unnecessary interfaces, DI layers, or duplicate services.
