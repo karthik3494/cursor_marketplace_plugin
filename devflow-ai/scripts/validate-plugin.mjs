@@ -51,7 +51,10 @@ if (manifest) {
 }
 
 readJson("hooks/hooks.json");
-readJson("mcp.json");
+const mcp = readJson("mcp.json");
+if (mcp && !mcp.mcpServers?.["jira-cloud"]) {
+  warnings.push('mcp.json missing jira-cloud server (expected for Release 1)');
+}
 
 const requiredAgents = [
   "workflow-orchestrator",

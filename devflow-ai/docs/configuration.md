@@ -10,6 +10,7 @@
 | Variable | Required | Purpose |
 |----------|----------|---------|
 | `JIRA_BASE_URL` | Yes | Cloud/site URL |
+| `JIRA_SITE_NAME` | Yes | Subdomain for `jira-cloud` MCP (`your-org`) |
 | `JIRA_EMAIL` | Yes | API user |
 | `JIRA_API_TOKEN` | Yes | Atlassian token |
 | `JIRA_PROJECT_KEY` | No | Default backlog project |
@@ -17,9 +18,12 @@
 
 Never commit token values.
 
-## Jira MCP (recommended)
+## Bundled MCP (`mcp.json`)
 
-Add an Atlassian/Jira MCP server in Cursor (user or team level). DevFlow discovers tools dynamically; empty plugin `mcp.json` is intentional so teams choose their verified MCP.
+- **`jira-cloud`** — `@aashari/mcp-server-atlassian-jira` (API token; uses variables above)
+- **`atlassian-rovo`** — official cloud endpoint (OAuth in browser)
+
+Disable either server in Cursor if your team standardizes on one auth model.
 
 ## Per-project
 

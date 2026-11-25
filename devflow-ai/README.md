@@ -31,7 +31,12 @@ In **Plugins → Configure** set:
 - `JIRA_API_TOKEN`
 - Optional: `JIRA_PROJECT_KEY`
 
-Connect a **Jira/Atlassian MCP** server in Cursor (recommended). See [docs/integrations.md](docs/integrations.md).
+Bundled MCP servers (see [docs/integrations.md](docs/integrations.md)):
+
+- **`jira-cloud`** — API token via `@aashari/mcp-server-atlassian-jira`
+- **`atlassian-rovo`** — official `https://mcp.atlassian.com/v2/mcp` (OAuth)
+
+Set `JIRA_SITE_NAME`, `JIRA_EMAIL`, and `JIRA_API_TOKEN` in **Plugins → Configure**.
 
 ### 3. Run commands
 
@@ -84,7 +89,8 @@ devflow-ai/
 ## Known limitations (v1.0.0)
 
 - Jira live integration **not verified** in plugin build CI; requires your MCP + credentials
-- Plugin `mcp.json` is empty by design — attach your team's Jira MCP
+- Live Jira calls require your credentials and MCP approval in Cursor
+- `atlassian-rovo` requires interactive OAuth (not validated in CI)
 - Non-Jira providers are adapter-documented; Jira is Release 1 primary
 
 ## License

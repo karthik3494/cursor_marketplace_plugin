@@ -1,3 +1,16 @@
 {
-  "mcpServers": {}
+  "mcpServers": {
+    "jira-cloud": {
+      "command": "npx",
+      "args": ["-y", "@aashari/mcp-server-atlassian-jira"],
+      "env": {
+        "ATLASSIAN_SITE_NAME": "${JIRA_SITE_NAME}",
+        "ATLASSIAN_USER_EMAIL": "${JIRA_EMAIL}",
+        "ATLASSIAN_API_TOKEN": "${JIRA_API_TOKEN}"
+      }
+    },
+    "atlassian-rovo": {
+      "url": "https://mcp.atlassian.com/v2/mcp"
+    }
+  }
 }

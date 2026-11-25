@@ -8,8 +8,10 @@ description: Retrieve backlog items from Jira and other PM systems, rank recomme
 ## Integration order
 
 1. `GetDynamicTools` — pattern `jira|atlassian`
-2. Plugin variables: `JIRA_BASE_URL`, `JIRA_EMAIL`, `JIRA_API_TOKEN`, `JIRA_PROJECT_KEY`
-3. If no MCP: document **unverified** and ask user to add Atlassian/Jira MCP (see `docs/integrations.md`)
+2. Prefer plugin MCP `plugin-devflow-ai-jira-cloud` (tools: `jira_get`, `jira_post`, `jira_put`, `jira_patch`, `jira_delete`)
+3. Plugin variables: `JIRA_*` including `JIRA_SITE_NAME` for bundled MCP
+4. Alternate: `atlassian-rovo` after OAuth — see `docs/integrations.md`
+5. If no MCP tools available: mark **unverified**; do not fabricate issue data
 
 ## Jira JQL examples (adapt filters)
 

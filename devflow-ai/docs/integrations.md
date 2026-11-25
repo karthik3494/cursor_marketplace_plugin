@@ -2,14 +2,32 @@
 
 ## Release 1 — Jira (primary)
 
-**Verified path:** User-configured Jira/Atlassian MCP + plugin variables for REST fallback documentation.
+DevFlow ships two Jira MCP entries in `mcp.json` (enable one or both in Cursor):
+
+| Server key | Transport | Auth | Best for |
+|------------|-----------|------|----------|
+| `jira-cloud` | `npx @aashari/mcp-server-atlassian-jira` | API token via plugin variables | Token-based CI-friendly reads/writes (with approval gates) |
+| `atlassian-rovo` | `https://mcp.atlassian.com/v2/mcp` | Atlassian OAuth (browser) | Official Atlassian Rovo MCP |
+
+### Plugin variables (`jira-cloud`)
+
+| Variable | Example |
+|----------|---------|
+| `JIRA_BASE_URL` | `https://your-org.atlassian.net` |
+| `JIRA_SITE_NAME` | `your-org` |
+| `JIRA_EMAIL` | `you@company.com` |
+| `JIRA_API_TOKEN` | (dashboard secret) |
+| `JIRA_PROJECT_KEY` | `MAG` |
+
+Cursor exposes bundled MCP as `plugin-devflow-ai-jira-cloud` (prefix may vary).
 
 ### Setup checklist
 
 - [ ] Atlassian account with API token
 - [ ] Jira permissions: browse project, assign issues, transition, edit labels (as needed)
-- [ ] MCP server connected in Cursor (team or user)
-- [ ] Plugin variables set in dashboard
+- [ ] Plugin variables set in **Plugins → Configure**
+- [ ] Approve MCP server on first use in Cursor
+- [ ] Optional: connect `atlassian-rovo` and complete OAuth
 
 ### REST fallback (manual / scripted with approval)
 

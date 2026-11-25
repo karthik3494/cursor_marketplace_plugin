@@ -1,13 +1,13 @@
 {
   "name": "devflow-ai",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Multi-agent software development team: backlog selection, confirmed assignment, requirements, implementation, QA, review, and approved Jira updates.",
   "author": {
     "name": "Unicentric",
     "email": "plugins@unicentric.com"
   },
-  "homepage": "https://github.com/unicentric/devflow-ai",
-  "repository": "https://github.com/unicentric/devflow-ai",
+  "homepage": "https://github.com/karthik3494/cursor_marketplace_plugin",
+  "repository": "https://github.com/karthik3494/cursor_marketplace_plugin",
   "license": "MIT",
   "keywords": [
     "jira",
@@ -27,6 +27,11 @@
         "type": "string",
         "title": "Jira base URL",
         "description": "Example: https://your-org.atlassian.net"
+      },
+      "JIRA_SITE_NAME": {
+        "type": "string",
+        "title": "Jira site name (subdomain)",
+        "description": "Cloud subdomain only: use 'your-org' for https://your-org.atlassian.net (required for bundled jira-cloud MCP)"
       },
       "JIRA_EMAIL": {
         "type": "string",
@@ -51,6 +56,6 @@
         "enum": ["jira", "github", "azure-devops", "gitlab", "bitbucket"]
       }
     },
-    "required": ["JIRA_BASE_URL", "JIRA_EMAIL", "JIRA_API_TOKEN"]
+    "required": ["JIRA_BASE_URL", "JIRA_SITE_NAME", "JIRA_EMAIL", "JIRA_API_TOKEN"]
   }
 }
