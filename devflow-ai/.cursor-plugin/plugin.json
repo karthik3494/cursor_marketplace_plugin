@@ -1,0 +1,56 @@
+{
+  "name": "devflow-ai",
+  "version": "1.0.0",
+  "description": "Multi-agent software development team: backlog selection, confirmed assignment, requirements, implementation, QA, review, and approved Jira updates.",
+  "author": {
+    "name": "Unicentric",
+    "email": "plugins@unicentric.com"
+  },
+  "homepage": "https://github.com/unicentric/devflow-ai",
+  "repository": "https://github.com/unicentric/devflow-ai",
+  "license": "MIT",
+  "keywords": [
+    "jira",
+    "sdlc",
+    "multi-agent",
+    "workflow",
+    "qa",
+    "code-review",
+    "backlog",
+    "orchestration"
+  ],
+  "logo": "assets/logo.svg",
+  "variables": {
+    "type": "object",
+    "properties": {
+      "JIRA_BASE_URL": {
+        "type": "string",
+        "title": "Jira base URL",
+        "description": "Example: https://your-org.atlassian.net"
+      },
+      "JIRA_EMAIL": {
+        "type": "string",
+        "title": "Jira user email",
+        "description": "Email for Jira Cloud API authentication"
+      },
+      "JIRA_API_TOKEN": {
+        "type": "string",
+        "title": "Jira API token",
+        "description": "Atlassian API token (never commit to source control)"
+      },
+      "JIRA_PROJECT_KEY": {
+        "type": "string",
+        "title": "Default Jira project key",
+        "description": "Optional default project for backlog queries (e.g. MAG)"
+      },
+      "WORK_ITEM_PROVIDER": {
+        "type": "string",
+        "title": "Work item provider",
+        "description": "Primary provider for Release 1",
+        "default": "jira",
+        "enum": ["jira", "github", "azure-devops", "gitlab", "bitbucket"]
+      }
+    },
+    "required": ["JIRA_BASE_URL", "JIRA_EMAIL", "JIRA_API_TOKEN"]
+  }
+}

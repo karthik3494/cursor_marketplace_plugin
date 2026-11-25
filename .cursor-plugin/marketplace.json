@@ -1,0 +1,21 @@
+{
+  "name": "unicentric-devflow-marketplace",
+  "owner": {
+    "name": "Unicentric",
+    "email": "plugins@unicentric.com"
+  },
+  "metadata": {
+    "description": "Cursor marketplace collection for DevFlow AI multi-agent development plugins",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "devflow-ai",
+      "source": "devflow-ai",
+      "description": "DevFlow AI – Multi-Agent Software Development Team",
+      "version": "1.0.0",
+      "keywords": ["jira", "sdlc", "multi-agent", "qa", "code-review"],
+      "logo": "assets/logo.svg"
+    }
+  ]
+}

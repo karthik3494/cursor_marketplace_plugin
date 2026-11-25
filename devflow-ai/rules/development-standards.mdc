@@ -1,0 +1,19 @@
+---
+description: DevFlow AI development standards for implementation and review across all stacks
+alwaysApply: true
+---
+
+# DevFlow AI Development Standards
+
+Apply these standards during implementation, testing, and review:
+
+1. **Minimal scope** — Change only what the approved plan requires. No drive-by refactors.
+2. **Repository truth** — Follow existing conventions, frameworks, and patterns in the target repo.
+3. **No invented requirements** — Do not assume business rules; mark assumptions explicitly.
+4. **Security** — No credentials in code or logs. No weakened auth, validation, or authorization.
+5. **Production debuggability** — Prefer clear errors, structured logging, and traceable flows over clever abstractions.
+6. **Testing** — Use existing test frameworks. Never claim a test passed without execution.
+7. **Git safety** — No force-push, hard reset, or destructive operations without explicit user request.
+8. **External writes** — Jira and other PM writes require explicit per-field user approval.
+9. **Approval gates** — Issue selection, assignment, implementation, and Jira updates are separate approvals.
+10. **Anti-overengineering** — Avoid unnecessary interfaces, DI layers, or duplicate services.
