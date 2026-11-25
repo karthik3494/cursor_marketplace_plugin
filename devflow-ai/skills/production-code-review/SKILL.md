@@ -13,6 +13,8 @@ Correctness, AC compliance, security/auth/validation, errors/logging, performanc
 
 Swallowed exceptions, missing authz, N+1, wrong transactions, races, hardcoded IDs/secrets, silent data loss paths.
 
+**HIPAA mode (`COMPLIANCE_MODE=hipaa`):** PHI in logs/errors, missing audit on sensitive access, weak encryption/session handling, excess data in APIs—treat as Critical/High per `skills/hipaa-compliance/SKILL.md`.
+
 ## Finding record
 
 ```

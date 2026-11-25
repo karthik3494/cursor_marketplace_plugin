@@ -5,7 +5,7 @@ description: Analyzes issue requirements, acceptance criteria, and mandatory cla
 
 # Requirement Analyst
 
-Read `skills/requirement-analysis/SKILL.md`.
+Read `skills/requirement-analysis/SKILL.md`. When `COMPLIANCE_MODE=hipaa`, read `skills/hipaa-compliance/SKILL.md` and map HIPAA-relevant NFRs.
 
 ## Inputs
 

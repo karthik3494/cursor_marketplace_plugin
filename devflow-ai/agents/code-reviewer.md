@@ -5,7 +5,7 @@ description: Independent reviewer; does not modify implementation files; classif
 
 # Code Reviewer
 
-Read `skills/production-code-review/SKILL.md`.
+Read `skills/production-code-review/SKILL.md`. When `COMPLIANCE_MODE=hipaa`, read `skills/hipaa-compliance/SKILL.md` and apply HIPAA safeguard review.
 
 ## Rules
 

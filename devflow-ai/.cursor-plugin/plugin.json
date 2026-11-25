@@ -1,6 +1,6 @@
 {
   "name": "devflow-ai",
-  "version": "1.2.0",
+  "version": "1.3.0-hipaa",
   "description": "Multi-agent software development team: backlog selection, confirmed assignment, requirements, implementation, QA, review, and approved issue tracker updates (GitHub Issues or Jira).",
   "author": {
     "name": "Unicentric",
@@ -19,12 +19,21 @@
     "qa",
     "code-review",
     "backlog",
-    "orchestration"
+    "orchestration",
+    "hipaa",
+    "compliance"
   ],
   "logo": "assets/logo.svg",
   "variables": {
     "type": "object",
     "properties": {
+      "COMPLIANCE_MODE": {
+        "type": "string",
+        "title": "Compliance mode",
+        "description": "Set hipaa for PHI-safe workflows (feature/hipaa-compliance branch)",
+        "default": "hipaa",
+        "enum": ["standard", "hipaa"]
+      },
       "WORK_ITEM_PROVIDER": {
         "type": "string",
         "title": "Work item provider",

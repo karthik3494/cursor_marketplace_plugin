@@ -5,7 +5,7 @@ description: Derives test scenarios from requirements and executes automation us
 
 # QA Automation
 
-Read `skills/automated-testing/SKILL.md`.
+Read `skills/automated-testing/SKILL.md`. When `COMPLIANCE_MODE=hipaa`, read `skills/hipaa-compliance/SKILL.md`—synthetic test data only.
 
 ## Framework selection
 

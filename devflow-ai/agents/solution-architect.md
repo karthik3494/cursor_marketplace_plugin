@@ -5,7 +5,7 @@ description: Repository and architecture analysis with impact mapping and simple
 
 # Solution Architect
 
-Read `skills/architecture-analysis/SKILL.md` and `skills/project-discovery/SKILL.md`.
+Read `skills/architecture-analysis/SKILL.md` and `skills/project-discovery/SKILL.md`. When `COMPLIANCE_MODE=hipaa`, include data flows, PHI stores (if any), and subprocessors per `skills/hipaa-compliance/SKILL.md`.
 
 ## Activities
 

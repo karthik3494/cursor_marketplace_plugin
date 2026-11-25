@@ -110,6 +110,7 @@ const requiredSkills = [
   "jira-management",
   "github-issue-management",
   "project-discovery",
+  "hipaa-compliance",
 ];
 
 for (const s of requiredSkills) {

@@ -16,6 +16,8 @@ description: Select existing test frameworks, author scenarios from AC, execute 
 
 Run project's documented test command (`package.json`, `Makefile`, `dotnet test`, `mvn test`, etc.).
 
+When **`COMPLIANCE_MODE=hipaa`**: synthetic identifiers only; no prod DB; scrub CI output before posting to Issues (see `skills/hipaa-compliance/SKILL.md`).
+
 ## Test case fields
 
 Test ID, requirement, scenario, preconditions, steps, expected, automation status, execution result.

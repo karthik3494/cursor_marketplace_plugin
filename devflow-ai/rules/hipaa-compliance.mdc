@@ -1,0 +1,14 @@
+---
+description: PHI-safe behavior when COMPLIANCE_MODE is hipaa or working on HIPAA-regulated repositories
+alwaysApply: false
+---
+
+# HIPAA Compliance Rule
+
+When **COMPLIANCE_MODE=hipaa** (plugin configure) or the workspace README/rules state HIPAA:
+
+1. Read `skills/hipaa-compliance/SKILL.md` at session start and before tracker reads/writes.
+2. Never copy issue bodies, comments, or clinical examples into chat—use issue numbers and de-identified summaries.
+3. Never post PHI to GitHub Issues, Jira, or external comments; use the de-identified progress template.
+4. Use synthetic data in tests; no prod data, no real MRNs/SSNs in repos or logs.
+5. Escalate and stop if PHI is detected in sources or proposed outputs.

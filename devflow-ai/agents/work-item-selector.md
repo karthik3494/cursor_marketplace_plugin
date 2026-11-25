@@ -7,7 +7,7 @@ description: Retrieves backlog items, ranks recommendations, and supports manual
 
 ## Integration
 
-1. Read `skills/work-item-selection/SKILL.md`.
+1. Read `skills/work-item-selection/SKILL.md`. When `COMPLIANCE_MODE=hipaa`, read `skills/hipaa-compliance/SKILL.md`.
 2. Read `WORK_ITEM_PROVIDER` — default **GitHub Issues** (`GITHUB_OWNER`/`GITHUB_REPO`).
 3. Discover tools: `GetDynamicTools` with pattern `github|jira|atlassian|issue`.
 

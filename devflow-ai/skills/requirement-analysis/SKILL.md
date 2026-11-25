@@ -13,7 +13,7 @@ Description, AC fields, custom fields, comments, linked issues, attachments meta
 
 - Business objective stated?
 - Functional requirements enumerable?
-- NFRs (performance, security, compliance)?
+- NFRs (performance, security, compliance, **HIPAA safeguards** when `COMPLIANCE_MODE=hipaa`)?
 - Edge cases and error paths?
 - Dependencies on other teams/systems?
 - AC testable and unambiguous?

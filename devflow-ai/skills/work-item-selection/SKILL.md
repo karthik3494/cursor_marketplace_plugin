@@ -5,7 +5,7 @@ description: Retrieve backlog items from GitHub Issues or Jira, rank recommendat
 
 # Work Item Selection
 
-Check **`WORK_ITEM_PROVIDER`** (default: `github`).
+Check **`WORK_ITEM_PROVIDER`** (default: `github`). If **`COMPLIANCE_MODE=hipaa`**, read `skills/hipaa-compliance/SKILL.md` and list issues by `#` + sanitized title only—do not quote bodies in chat.
 
 ## GitHub Issues (default)
 

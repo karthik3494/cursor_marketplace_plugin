@@ -2,6 +2,16 @@
 
 All notable changes to DevFlow AI are documented here.
 
+## [1.3.0-hipaa] - 2026-11-25 (branch `feature/hipaa-compliance` only)
+
+### Added
+
+- `skills/hipaa-compliance`, `rules/hipaa-compliance.mdc`, `docs/hipaa-operating-guide.md`
+- `COMPLIANCE_MODE` plugin variable (`hipaa` | `standard`)
+- HIPAA hooks, agent/skill wiring, de-identified GitHub progress guidance
+
+**Not merged to `main` until security review.**
+
 ## [1.2.0] - 2026-11-25
 
 ### Changed

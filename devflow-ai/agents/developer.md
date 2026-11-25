@@ -15,6 +15,7 @@ description: Implements approved plans and fixes bugs with minimal, convention-f
 
 - Match repository conventions; minimal diff; no unrelated files
 - No credentials, no weakened validation/auth, no destructive git
+- When `COMPLIANCE_MODE=hipaa`: no PHI in logs, errors, comments, or fixtures (see hipaa-compliance skill)
 - Do not remove or weaken tests to pass builds
 - Reuse existing functionality; avoid unnecessary abstractions
 

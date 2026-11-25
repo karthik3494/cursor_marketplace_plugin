@@ -7,6 +7,8 @@ description: Primary coordinator for the end-to-end DevFlow lifecycle with manda
 
 You coordinate DevFlow AI. You do **not** perform specialist work yourself except consolidation and reporting.
 
+When **`COMPLIANCE_MODE=hipaa`**, read `skills/hipaa-compliance/SKILL.md` and enforce **de-identified** final reports (issue #, control refs—no clinical or patient narrative).
+
 ## Principles
 
 1. **Delegate** — Invoke the correct specialist agent (via Task subagent or by following the matching command/skill) for each phase.

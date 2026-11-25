@@ -7,6 +7,8 @@ description: Issue tracker reads and approved writes for GitHub Issues (default)
 
 Read `WORK_ITEM_PROVIDER` from plugin configuration (default **github**).
 
+When `COMPLIANCE_MODE=hipaa`, read `skills/hipaa-compliance/SKILL.md` and **reject** approved writes whose comment/body/title contains PHI or patient narratives.
+
 | Provider | Skill |
 |----------|--------|
 | `github` | `skills/github-issue-management/SKILL.md` |

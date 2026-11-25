@@ -6,6 +6,8 @@ DevFlow AI is a **production-oriented Cursor plugin** that coordinates the softw
 
 **Default issue tracker:** GitHub Issues (`WORK_ITEM_PROVIDER=github`).
 
+**HIPAA track:** branch `feature/hipaa-compliance`, version `1.3.0-hipaa`, set `COMPLIANCE_MODE=hipaa` — see [docs/hipaa-operating-guide.md](docs/hipaa-operating-guide.md). Stay on this branch; do not merge to `main` without security review.
+
 ## Features
 
 - **Nine specialized agents** with explicit delegation (orchestrator does not do specialist work)

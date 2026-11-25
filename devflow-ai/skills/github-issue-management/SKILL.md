@@ -49,6 +49,8 @@ Use existing repo labels from `gh label list`. Add with `--add-label`; do not re
 
 Show **full** markdown body before `gh issue comment` or MCP create.
 
+When **`COMPLIANCE_MODE=hipaa`**: run PHI check; use de-identified template from `skills/hipaa-compliance/SKILL.md`; refuse writes containing identifiers or clinical narratives.
+
 ## Not approval
 
 "continue", "LGTM", "proceed with implementation" do not authorize GitHub writes.
